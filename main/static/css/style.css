@@ -131,42 +131,35 @@ h1 {
   bottom: 0;
 
 }
-.add-book {
-  position: fixed;
-  top: 30px;
-  right: 210px;
-  font-size: 20px;
-  padding: 10px 20px;
-  background-color: #04073d;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 999;
-  overflow: hidden;
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px
 }
 
-.add-book::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #fff;
-  transition: all 0.3s ease;
+.login {
+    order: 2;
+    background-color: #2abd53;
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 10px;
+    width: 90px;
+    border: none
 }
 
-.add-book:hover {
-  background-color: transparent;
-  color: #04073d;
+.adding {
+    order: 1;
+
 }
 
-.add-book:hover::before {
-  width: 100%;
+.adding button {
+    background-color: #2abd53;
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 5px;
+    width: 190px;
+    border: none;
+    margin-right: 8px
 }
-
-.add-book:hover span {
-  color: #000;
-}
-

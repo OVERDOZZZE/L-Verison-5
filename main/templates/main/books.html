@@ -8,8 +8,15 @@
     <script src="static 'js/main.js'"></script>
 </head>
 <body>
-    <a href="add_book/"><button class="add-book">Add Book</button></a>
-    <h1>Books List</h1>
+
+    <div class="button-container">
+        <a href="login/"><button class="login">Login</button></a>
+        <div class="adding">
+            <a href="add_book/"><button class="add-book">Add Book</button></a>
+            <a href="add_author/"><button class="add-author">Add Author</button></a>
+            <a href="add_publisher/"><button class="add-publisher">Add Publisher</button></a>
+        </div>
+    </div>
   <div class="book-list">
     {% for book in books %}
       <div class="book-item">
@@ -21,21 +28,18 @@
 
       </div>
     {% endfor %}
-    <div class="pagination">
-        <span class="step-links">
-            {% if books.has_previous %}
-                <a href="?page=1"> <</a>
-                <a href="?page={{ books.previous_page_number }}">></a>
-            {% endif %}
+        <div class="pagination">
 
+            <span class="step-links">
+                 {% if books.has_previous %}
+                <a href="?page={{ books.previous_page_number }}"><</a>
+                {% endif %}
 
-            {% if books.has_next %}
-                <a href="?page={{ books.next_page_number }}"><</a>
-                <a href="?page={{ books.paginator.num_pages }}">> </a>
-            {% endif %}
-
-        </span>
-    </div>
+                {% if books.has_next %}
+                    <a href="?page={{ books.next_page_number }}">></a>
+                {% endif %}
+            </span>
+        </div>
 </div>
 </body>
 </html>

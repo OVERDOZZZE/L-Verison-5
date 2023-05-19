@@ -11,7 +11,7 @@ from .forms import BookForm, AddAuthorForm, AddPublisherForm
 
 def books(request):
     books_list = Books.objects.all()
-    paginator = Paginator(books_list, 6)
+    paginator = Paginator(books_list, 2)
     page = request.GET.get('page')
     books = paginator.get_page(page)
     context = {'books': books}
