@@ -27,19 +27,25 @@
         <p>Publication date: {{ book.publication_date }}</p>
 
       </div>
-    {% endfor %}
-        <div class="pagination">
+    {% endfor %}<div class="pagination">
+    <span class="step-links">
+        {% if books.has_previous %}
+            <a href="?page={{ books.previous_page_number }}">назад </a>
+        {% endif %}
 
-            <span class="step-links">
-                 {% if books.has_previous %}
-                <a href="?page={{ books.previous_page_number }}"><</a>
-                {% endif %}
+        {% for i in books.paginator.page_range %}
+            {% if books.number == i %}
+                <span class="current-page">{{ i }}</span>
+            {% else %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
 
-                {% if books.has_next %}
-                    <a href="?page={{ books.next_page_number }}">></a>
-                {% endif %}
-            </span>
-        </div>
+        {% if books.has_next %}
+            <a href="?page={{ books.next_page_number }}">вперед</a>
+        {% endif %}
+    </span>
+</div>
 </div>
 </body>
 </html>
